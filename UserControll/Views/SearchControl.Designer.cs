@@ -65,5 +65,6 @@
 
         private TextBox SearchTextBox;
         private Button BackButton;
+        private DataGridView ProductDataGrid;
     }
 }

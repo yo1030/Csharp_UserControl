@@ -54,7 +54,7 @@
             searchControl.BorderStyle = BorderStyle.FixedSingle;
             searchControl.Location = new Point(35, 105);
             searchControl.Name = "searchControl";
-            searchControl.Size = new Size(275, 114);
+            searchControl.Size = new Size(320, 275);
             searchControl.TabIndex = 2;
             // 
             // MainView

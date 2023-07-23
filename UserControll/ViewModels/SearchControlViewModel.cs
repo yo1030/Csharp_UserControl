@@ -1,10 +1,14 @@
-﻿namespace UserControll.ViewModels
+﻿using System.ComponentModel;
+using UserControll.Domain;
+
+namespace UserControll.ViewModels
 {
     public class SearchControlViewModel : ViewModelBase
     {
-        public SearchControlViewModel()
+        private readonly IProductRepository _repository;
+        public SearchControlViewModel(IProductRepository repository)
         {
-            
+            _repository = repository;
         }
 
         private string _searchTextBoxText = "----";
@@ -17,11 +21,15 @@
             }
         }
 
+        public BindingList<SearchControlViewModelGrid> DataGrid
+        { get; set; } = new BindingList<SearchControlViewModelGrid>();
+
         public event Action<string> BackAction;
 
         internal void Back()
         {
             BackAction?.Invoke(SearchTextBoxText);
+            _repository.GetAll();
         }
     }
 }

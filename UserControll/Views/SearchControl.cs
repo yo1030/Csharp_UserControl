@@ -16,6 +16,7 @@ namespace UserControll.Views
             SearchTextBox.DataBindings.Add("Text", _vm, nameof(_vm.SearchTextBoxText));
 
             BackButton.Click += (_, __) => _vm.Back();
+            ProductDataGrid.DataSource = _vm.DataGrid;
         }
     }
 }

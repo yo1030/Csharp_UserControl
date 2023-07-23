@@ -1,9 +1,12 @@
-﻿namespace UserControll.ViewModels
+﻿using UserControll.Domain;
+
+namespace UserControll.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        public MainViewModel()
+        public MainViewModel(IProductRepository repository)
         {
+            SearchControlViewModel = new SearchControlViewModel(repository);
             SearchControlViewModel.BackAction += SearchControlViewModel_BackAction;
         }
 
@@ -17,7 +20,7 @@
             }
         }
 
-        public SearchControlViewModel SearchControlViewModel { get; set; } = new SearchControlViewModel();
+        public SearchControlViewModel SearchControlViewModel { get; set; }
 
         internal void Call()
         {
