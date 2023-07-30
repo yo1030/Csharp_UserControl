@@ -29,7 +29,12 @@ namespace UserControll.ViewModels
         internal void Back()
         {
             BackAction?.Invoke(SearchTextBoxText);
-            _repository.GetAll();
+            DataGrid.Clear();
+            var entities = _repository.GetAll();
+            foreach (var entity in entities)
+            {
+                DataGrid.Add(new SearchControlViewModelGrid(entity));
+            }
         }
     }
 }

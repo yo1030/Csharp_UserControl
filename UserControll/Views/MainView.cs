@@ -1,10 +1,11 @@
-﻿using UserControll.ViewModels;
+﻿using UserControll.Infrastructure;
+using UserControll.ViewModels;
 
 namespace UserControll.Views
 {
     public partial class MainView : Form
     {
-        private MainViewModel _vm = new MainViewModel();
+        private MainViewModel _vm = new MainViewModel(new ProductFake());
         public MainView()
         {
             InitializeComponent();
